@@ -123,11 +123,34 @@ All colors MUST be HSL.
 }
 
 @keyframes float {
+  0% {
+    transform: translateX(-100px) translateY(0px);
+  }
+  50% {
+    transform: translateX(calc(100vw + 100px)) translateY(-20px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) translateY(0px);
+  }
+}
+
+@keyframes gentle-float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
   }
 }
 
@@ -141,6 +164,14 @@ All colors MUST be HSL.
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
 }
 
 /* Smooth scrolling */
@@ -181,4 +212,13 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Enhanced text visibility */
+.text-enhanced {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .text-enhanced {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }

@@ -45,11 +45,18 @@ const Index = () => {
     setIsMenuOpen(false);
   };
 
-  const skills = [
-    'Python', 'SQL', 'Power BI', 'Excel', 'Machine Learning', 'Data Visualization',
-    'Statistical Analysis', 'Tableau', 'R', 'Azure', 'TensorFlow', 'Pandas',
-    'NumPy', 'Scikit-learn', 'Deep Learning', 'Natural Language Processing'
-  ];
+  const skillCategories = {
+    'Machine Learning & AI': {
+      'Natural Language Processing': ['TensorFlow', 'Scikit-learn', 'Deep Learning'],
+      'AI Platforms': ['Azure AI', 'Machine Learning']
+    },
+    'Data Analysis': {
+      'Visualization Tools': ['Power BI', 'Tableau'],
+      'Analysis Tools': ['Excel', 'Statistical Analysis', 'R'],
+      'Data Processing': ['Pandas', 'NumPy']
+    },
+    'Programming Languages': ['Python', 'SQL']
+  };
 
   const certifications = [
     {
@@ -71,6 +78,11 @@ const Index = () => {
 
   const projects = [
     {
+      title: 'Fake News Detection using NLP',
+      description: 'Developed a natural language processing model to detect fake news articles using advanced NLP techniques and machine learning algorithms.',
+      tech: ['Python', 'NLP', 'TensorFlow', 'Scikit-learn']
+    },
+    {
       title: 'Customer Segmentation Analysis',
       description: 'Developed a machine learning model to segment customers based on purchasing behavior using Python and scikit-learn.',
       tech: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn']
@@ -88,17 +100,69 @@ const Index = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-gray-900' : 'bg-white'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'dark bg-gray-900' : 'bg-gradient-to-br from-blue-100 via-white to-orange-100'}`}>
       {/* Background Animation */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20' : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'}`}>
-          {[...Array(20)].map((_, i) => (
+        {/* Day Theme Animations */}
+        {!isDark && (
+          <>
+            {/* Sun */}
+            <div className="absolute top-10 right-20 w-20 h-20 bg-yellow-400 rounded-full shadow-lg animate-pulse">
+              <div className="absolute inset-2 bg-yellow-300 rounded-full"></div>
+            </div>
+            
+            {/* Clouds */}
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={`cloud-${i}`}
+                className="absolute bg-white rounded-full opacity-80"
+                style={{
+                  width: Math.random() * 80 + 60 + 'px',
+                  height: Math.random() * 40 + 30 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 30 + 10 + '%',
+                  animation: `float ${Math.random() * 20 + 15}s linear infinite`,
+                  animationDelay: Math.random() * 10 + 's'
+                }}
+              />
+            ))}
+          </>
+        )}
+
+        {/* Night Theme Animations */}
+        {isDark && (
+          <>
+            {/* Moon */}
+            <div className="absolute top-10 right-20 w-16 h-16 bg-gray-200 rounded-full shadow-lg">
+              <div className="absolute top-2 left-2 w-3 h-3 bg-gray-400 rounded-full"></div>
+              <div className="absolute top-6 left-8 w-2 h-2 bg-gray-400 rounded-full"></div>
+            </div>
+            
+            {/* Stars */}
+            {[...Array(30)].map((_, i) => (
+              <div
+                key={`star-${i}`}
+                className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+                style={{
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                  animationDelay: Math.random() * 3 + 's',
+                  animationDuration: (Math.random() * 2 + 1) + 's'
+                }}
+              />
+            ))}
+          </>
+        )}
+
+        {/* Floating particles */}
+        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20' : 'bg-gradient-to-br from-blue-50/30 via-white/10 to-purple-50/30'}`}>
+          {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className={`absolute rounded-full animate-pulse ${isDark ? 'bg-blue-400/10' : 'bg-blue-200/30'}`}
+              className={`absolute rounded-full animate-pulse ${isDark ? 'bg-blue-400/10' : 'bg-blue-300/20'}`}
               style={{
-                width: Math.random() * 100 + 50 + 'px',
-                height: Math.random() * 100 + 50 + 'px',
+                width: Math.random() * 60 + 30 + 'px',
+                height: Math.random() * 60 + 30 + 'px',
                 left: Math.random() * 100 + '%',
                 top: Math.random() * 100 + '%',
                 animationDelay: Math.random() * 3 + 's',
@@ -110,7 +174,7 @@ const Index = () => {
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 backdrop-blur-md ${isDark ? 'bg-gray-900/80 border-gray-700' : 'bg-white/80 border-gray-200'} border-b transition-colors duration-300`}>
+      <nav className={`fixed top-0 w-full z-50 backdrop-blur-md ${isDark ? 'bg-gray-900/80 border-gray-700' : 'bg-white/90 border-gray-300'} border-b transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -123,7 +187,7 @@ const Index = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`capitalize hover:text-blue-600 transition-colors ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
+                  className={`capitalize hover:text-blue-600 transition-colors font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}
                 >
                   {item}
                 </button>
@@ -135,7 +199,7 @@ const Index = () => {
                 variant="ghost"
                 size="sm"
                 onClick={toggleTheme}
-                className={isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900'}
+                className={isDark ? 'text-gray-300 hover:text-white' : 'text-gray-800 hover:text-gray-900'}
               >
                 {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
@@ -155,13 +219,13 @@ const Index = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className={`md:hidden ${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'} border-t`}>
+          <div className={`md:hidden ${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white/95 border-gray-300'} border-t`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {['about', 'education', 'skills', 'projects', 'certifications', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`block px-3 py-2 text-base font-medium capitalize ${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900'}`}
+                  className={`block px-3 py-2 text-base font-medium capitalize ${isDark ? 'text-gray-300 hover:text-white' : 'text-gray-800 hover:text-gray-900'}`}
                 >
                   {item}
                 </button>
@@ -178,10 +242,10 @@ const Index = () => {
             <h1 className={`text-5xl md:text-7xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Madhan M</span>
             </h1>
-            <p className={`text-xl md:text-2xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-xl md:text-2xl mb-8 font-semibold ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
               Data Analyst & AI Enthusiast
             </p>
-            <p className={`text-lg mb-12 max-w-2xl mx-auto ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
+            <p className={`text-lg mb-12 max-w-2xl mx-auto font-medium ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
               Pre-final year B.Tech AIDS student passionate about transforming data into actionable insights and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -193,7 +257,7 @@ const Index = () => {
               </Button>
               <Button 
                 variant="outline"
-                className={`px-8 py-3 text-lg ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : ''}`}
+                className={`px-8 py-3 text-lg font-medium ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-400 text-gray-800 hover:bg-gray-100'}`}
                 onClick={() => window.open('https://drive.google.com/file/d/132psJlwmlmYEqO3wb3fA72g6y6R4nBa_/view?usp=drive_link', '_blank')}
               >
                 <Download className="mr-2 h-5 w-5" />
@@ -212,10 +276,10 @@ const Index = () => {
               <h2 className={`text-4xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 About Me
               </h2>
-              <p className={`text-lg mb-6 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <p className={`text-lg mb-6 leading-relaxed font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                 I'm a passionate data analyst and AI enthusiast currently pursuing my B.Tech in Artificial Intelligence and Data Science at Arunai Engineering College. With a strong academic record (GPA: 8.7), I'm dedicated to leveraging data-driven insights to solve complex problems and drive innovation.
               </p>
-              <p className={`text-lg mb-6 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <p className={`text-lg mb-6 leading-relaxed font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                 My journey in the field of data science has been marked by continuous learning and hands-on experience with cutting-edge technologies. I'm particularly interested in machine learning, statistical analysis, and the practical applications of AI in solving real-world challenges.
               </p>
               <div className="flex space-x-4">
@@ -223,7 +287,7 @@ const Index = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => window.open('https://github.com/madhan785', '_blank')}
-                  className={isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : ''}
+                  className={isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-400 text-gray-800 hover:bg-gray-100'}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
@@ -232,7 +296,7 @@ const Index = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => window.open('https://www.linkedin.com/in/madhan-m-3522482a6/', '_blank')}
-                  className={isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : ''}
+                  className={isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-400 text-gray-800 hover:bg-gray-100'}
                 >
                   <Linkedin className="mr-2 h-4 w-4" />
                   LinkedIn
@@ -254,33 +318,33 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}>
+      <section id="education" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-white/70'}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Education
           </h2>
           <div className="flex justify-center">
-            <Card className={`max-w-2xl w-full ${isDark ? 'bg-gray-800 border-gray-700' : ''}`}>
+            <Card className={`max-w-2xl w-full ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white/90 border-gray-300'}`}>
               <CardHeader>
                 <CardTitle className={`text-2xl ${isDark ? 'text-white' : 'text-gray-900'}`}>
                   Bachelor of Technology
                 </CardTitle>
-                <CardDescription className="text-xl text-blue-600">
+                <CardDescription className={`text-xl ${isDark ? 'text-blue-400' : 'text-blue-600'} font-semibold`}>
                   Artificial Intelligence and Data Science
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <p className={`font-semibold ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <p className={`font-semibold text-lg ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                       Arunai Engineering College
                     </p>
-                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-700'} font-medium`}>
                       Pre-final Year Student
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Badge variant="secondary" className="bg-green-100 text-green-800 text-lg px-3 py-1">
+                    <Badge variant="secondary" className="bg-green-100 text-green-800 text-lg px-3 py-1 font-semibold">
                       GPA: 8.7/10
                     </Badge>
                   </div>
@@ -297,18 +361,56 @@ const Index = () => {
           <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Skills & Technologies
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {skills.map((skill, index) => (
-              <div
-                key={skill}
-                className={`p-4 rounded-lg text-center transition-all duration-300 hover:scale-105 ${
-                  isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'
-                } shadow-lg hover:shadow-xl`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <p className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  {skill}
-                </p>
+          <div className="space-y-8">
+            {Object.entries(skillCategories).map(([categoryName, categoryData], categoryIndex) => (
+              <div key={categoryName} className="space-y-6">
+                <h3 className={`text-2xl font-bold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
+                  {categoryName}
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {typeof categoryData === 'object' && !Array.isArray(categoryData) ? (
+                    Object.entries(categoryData).map(([subCategory, skills], subIndex) => (
+                      <Card
+                        key={subCategory}
+                        className={`transition-all duration-300 hover:scale-105 ${
+                          isDark ? 'bg-gray-800 border-gray-700 hover:bg-gray-700' : 'bg-white/90 border-gray-300 hover:bg-gray-50'
+                        } shadow-lg hover:shadow-xl`}
+                        style={{ animationDelay: `${(categoryIndex * 3 + subIndex) * 0.1}s` }}
+                      >
+                        <CardHeader className="pb-3">
+                          <CardTitle className={`text-lg ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                            {subCategory}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="flex flex-wrap gap-2">
+                            {skills.map((skill) => (
+                              <Badge key={skill} variant="outline" className={`${isDark ? 'border-gray-600 text-gray-300' : 'border-gray-400 text-gray-700'} font-medium`}>
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))
+                  ) : (
+                    <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {(categoryData as string[]).map((skill, index) => (
+                        <div
+                          key={skill}
+                          className={`p-4 rounded-lg text-center transition-all duration-300 hover:scale-105 ${
+                            isDark ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' : 'bg-white/90 hover:bg-gray-50 border border-gray-300'
+                          } shadow-lg hover:shadow-xl`}
+                          style={{ animationDelay: `${(categoryIndex * 4 + index) * 0.1}s` }}
+                        >
+                          <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                            {skill}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -316,26 +418,26 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}>
+      <section id="projects" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-white/70'}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={project.title} className={`hover:scale-105 transition-transform duration-300 ${isDark ? 'bg-gray-800 border-gray-700' : ''}`}>
+              <Card key={project.title} className={`hover:scale-105 transition-transform duration-300 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white/90 border-gray-300'} shadow-lg hover:shadow-xl`}>
                 <CardHeader>
-                  <CardTitle className={`${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-gray-900'}`}>
                     {project.title}
                   </CardTitle>
-                  <CardDescription className={isDark ? 'text-gray-400' : ''}>
+                  <CardDescription className={`${isDark ? 'text-gray-400' : 'text-gray-700'} font-medium`}>
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} variant="outline" className={isDark ? 'border-gray-600 text-gray-300' : ''}>
+                      <Badge key={tech} variant="outline" className={`${isDark ? 'border-gray-600 text-gray-300' : 'border-gray-400 text-gray-700'} font-medium`}>
                         {tech}
                       </Badge>
                     ))}
@@ -355,17 +457,17 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
-              <Card key={cert.name} className={`text-center hover:scale-105 transition-transform duration-300 ${isDark ? 'bg-gray-800 border-gray-700' : ''}`}>
+              <Card key={cert.name} className={`text-center hover:scale-105 transition-transform duration-300 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white/90 border-gray-300'} shadow-lg hover:shadow-xl`}>
                 <CardHeader>
                   <CardTitle className={`text-xl ${isDark ? 'text-white' : 'text-gray-900'}`}>
                     {cert.name}
                   </CardTitle>
-                  <CardDescription className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <CardDescription className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-700'} font-medium`}>
                     {cert.issuer}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-lg px-3 py-1">
+                  <Badge variant="secondary" className="bg-blue-100 text-blue-800 text-lg px-3 py-1 font-semibold">
                     {cert.year}
                   </Badge>
                 </CardContent>
@@ -376,7 +478,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-gray-50'}`}>
+      <section id="contact" className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-800/50' : 'bg-white/70'}`}>
         <div className="max-w-4xl mx-auto">
           <h2 className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Get In Touch
@@ -386,34 +488,34 @@ const Index = () => {
               <h3 className={`text-2xl font-semibold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 Let's Connect
               </h3>
-              <p className={`text-lg mb-8 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <p className={`text-lg mb-8 font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                 I'm always interested in discussing data science opportunities, collaborating on projects, or simply connecting with fellow enthusiasts in the field.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <Mail className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
-                  <a href="mailto:madhanmahe2005@gmail.com" className={`text-lg hover:underline ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <a href="mailto:madhanmahe2005@gmail.com" className={`text-lg hover:underline font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                     madhanmahe2005@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Github className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
-                  <a href="https://github.com/madhan785" target="_blank" rel="noopener noreferrer" className={`text-lg hover:underline ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <a href="https://github.com/madhan785" target="_blank" rel="noopener noreferrer" className={`text-lg hover:underline font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                     github.com/madhan785
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Linkedin className={`h-6 w-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
-                  <a href="https://www.linkedin.com/in/madhan-m-3522482a6/" target="_blank" rel="noopener noreferrer" className={`text-lg hover:underline ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <a href="https://www.linkedin.com/in/madhan-m-3522482a6/" target="_blank" rel="noopener noreferrer" className={`text-lg hover:underline font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                     LinkedIn Profile
                   </a>
                 </div>
               </div>
             </div>
             <div>
-              <Card className={isDark ? 'bg-gray-800 border-gray-700' : ''}>
+              <Card className={`${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white/90 border-gray-300'} shadow-lg`}>
                 <CardHeader>
-                  <CardTitle className={isDark ? 'text-white' : 'text-gray-900'}>
+                  <CardTitle className={`${isDark ? 'text-white' : 'text-gray-900'}`}>
                     Send a Message
                   </CardTitle>
                 </CardHeader>
@@ -424,7 +526,7 @@ const Index = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
-                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'}
                     />
                     <Input
                       type="email"
@@ -432,7 +534,7 @@ const Index = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
-                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'}
                     />
                     <Textarea
                       placeholder="Your Message"
@@ -440,7 +542,7 @@ const Index = () => {
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       required
                       rows={4}
-                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : ''}
+                      className={isDark ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'}
                     />
                     <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
                       Send Message
@@ -454,9 +556,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className={`py-8 px-4 sm:px-6 lg:px-8 border-t ${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'}`}>
+      <footer className={`py-8 px-4 sm:px-6 lg:px-8 border-t ${isDark ? 'bg-gray-900 border-gray-700' : 'bg-white/90 border-gray-300'}`}>
         <div className="max-w-7xl mx-auto text-center">
-          <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p className={`font-medium ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
             © 2025 Madhan M. All rights reserved.
           </p>
         </div>
