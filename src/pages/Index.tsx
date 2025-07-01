@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -31,6 +33,24 @@ const Index = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    emailjs
+    .send(
+      'service_7pfqq3s',        // Replace with your actual Service ID
+      'template_4foqc2i',       // Replace with your actual Template ID
+      formData,                 // This must match your template variables
+      'zSshVVabhtYuH_dlN'         // Replace with your Public Key (user ID)
+    )
+    .then(
+      (result) => {
+        console.log('Email sent:', result.text);
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      },
+      (error) => {
+        console.error('Email send error:', error);
+        alert('Failed to send message. Try again later.');
+      }
+    );
     // Here you would typically send the form data to your backend
     toast({
       title: "Message Sent!",
