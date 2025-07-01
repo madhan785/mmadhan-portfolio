@@ -1,4 +1,4 @@
-# 👋 Hi there, I'm Madhan
+# 👋 Hi there, I'm Madhan 
 
 Welcome to my portfolio! I'm a passionate Data Scientist and AI/ML practitioner, dedicated to turning data into actionable insights and building intelligent systems that make an impact.
 
