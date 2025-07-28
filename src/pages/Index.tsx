@@ -7,11 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
-<<<<<<< HEAD
-=======
 import emailjs from '@emailjs/browser';
 
->>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -36,8 +33,8 @@ const Index = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-<<<<<<< HEAD
-=======
+
+
     emailjs
     .send(
       'service_7pfqq3s',        // Replace with your actual Service ID
@@ -56,7 +53,6 @@ const Index = () => {
         alert('Failed to send message. Try again later.');
       }
     );
->>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     // Here you would typically send the form data to your backend
     toast({
       title: "Message Sent!",
