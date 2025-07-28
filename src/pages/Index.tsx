@@ -95,7 +95,6 @@ const Index = () => {
       year: '2025',
       issuer: 'Microsoft'
     },
-<<<<<<< HEAD
     { 
       name: 'Github Essential Expert',
       year: '2025',
@@ -109,8 +108,6 @@ const Index = () => {
       year: '2024',
       issuer: 'Intel CIIC'
     },
-=======
->>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     {
       name: 'Infosys Gen AI',
       year: '2024',
@@ -134,14 +131,11 @@ const Index = () => {
       description: 'Created an interactive Power BI dashboard for sales performance analysis with real-time data visualization.',
       tech: ['Power BI', 'SQL', 'Data Visualization']
     },
-<<<<<<< HEAD
     { 
       title: 'AI Agent web Automation',
       description: 'The Ai Agent can automatically fill the google form using Selenium tool.',
       tech: ['Python', 'selenium', 'Fuzzy Wuzzy']
     },
-=======
->>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     {
       title: 'Predictive Analytics Model',
       description: 'Built a predictive model to forecast business outcomes using statistical analysis and machine learning techniques.',
