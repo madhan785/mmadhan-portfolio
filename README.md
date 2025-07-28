@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 personal portfolio
 =======
 # 👋 Hi there, I'm Madhan 
