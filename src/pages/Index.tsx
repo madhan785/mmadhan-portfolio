@@ -69,6 +69,19 @@ const Index = () => {
       year: '2025',
       issuer: 'Microsoft'
     },
+    { 
+      name: 'Github Essential Expert',
+      year: '2025',
+      issuer: 'Github' 
+    },
+    { name: 'Artificial Intelligence Intern',
+      year: '2025',
+      issuer: 'Codec Technologies'
+    },
+    { name: 'Machine Learning Intern',
+      year: '2024',
+      issuer: 'Intel CIIC'
+    },
     {
       name: 'Infosys Gen AI',
       year: '2024',
@@ -91,6 +104,11 @@ const Index = () => {
       title: 'Sales Dashboard',
       description: 'Created an interactive Power BI dashboard for sales performance analysis with real-time data visualization.',
       tech: ['Power BI', 'SQL', 'Data Visualization']
+    },
+    { 
+      title: 'AI Agent web Automation',
+      description: 'The Ai Agent can automatically fill the google form using Selenium tool.',
+      tech: ['Python', 'selenium', 'Fuzzy Wuzzy']
     },
     {
       title: 'Predictive Analytics Model',
