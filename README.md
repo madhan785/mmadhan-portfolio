@@ -44,7 +44,7 @@ With a strong foundation in data science, machine learning, and artificial intel
 
 ---
 
-> “The best way to predict the future is to invent it.” – Alan Kay
+
 
 Thanks for visiting! Feel free to explore the projects and get in touch. 🚀
->>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
+
