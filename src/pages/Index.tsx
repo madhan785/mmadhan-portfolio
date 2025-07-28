@@ -7,6 +7,11 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
+<<<<<<< HEAD
+=======
+import emailjs from '@emailjs/browser';
+
+>>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -31,6 +36,27 @@ const Index = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+<<<<<<< HEAD
+=======
+    emailjs
+    .send(
+      'service_7pfqq3s',        // Replace with your actual Service ID
+      'template_4foqc2i',       // Replace with your actual Template ID
+      formData,                 // This must match your template variables
+      'zSshVVabhtYuH_dlN'         // Replace with your Public Key (user ID)
+    )
+    .then(
+      (result) => {
+        console.log('Email sent:', result.text);
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      },
+      (error) => {
+        console.error('Email send error:', error);
+        alert('Failed to send message. Try again later.');
+      }
+    );
+>>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     // Here you would typically send the form data to your backend
     toast({
       title: "Message Sent!",
@@ -69,6 +95,7 @@ const Index = () => {
       year: '2025',
       issuer: 'Microsoft'
     },
+<<<<<<< HEAD
     { 
       name: 'Github Essential Expert',
       year: '2025',
@@ -82,6 +109,8 @@ const Index = () => {
       year: '2024',
       issuer: 'Intel CIIC'
     },
+=======
+>>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     {
       name: 'Infosys Gen AI',
       year: '2024',
@@ -105,11 +134,14 @@ const Index = () => {
       description: 'Created an interactive Power BI dashboard for sales performance analysis with real-time data visualization.',
       tech: ['Power BI', 'SQL', 'Data Visualization']
     },
+<<<<<<< HEAD
     { 
       title: 'AI Agent web Automation',
       description: 'The Ai Agent can automatically fill the google form using Selenium tool.',
       tech: ['Python', 'selenium', 'Fuzzy Wuzzy']
     },
+=======
+>>>>>>> 3465b7c2c1334ac53b9c6d9fc1980982e7dd32a4
     {
       title: 'Predictive Analytics Model',
       description: 'Built a predictive model to forecast business outcomes using statistical analysis and machine learning techniques.',
