@@ -317,7 +317,7 @@ const Index = () => {
                 About Me
               </h2>
               <p className={`text-lg mb-6 leading-relaxed font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
-                I'm a passionate data analyst and AI enthusiast currently pursuing my B.Tech in Artificial Intelligence and Data Science at Arunai Engineering College. With a strong academic record (GPA: 8.7), I'm dedicated to leveraging data-driven insights to solve complex problems and drive innovation.
+                I'm a passionate data analyst and AI enthusiast currently pursuing my B.Tech in Artificial Intelligence and Data Science at Arunai Engineering College. With a strong academic record (GPA: 8.5), I'm dedicated to leveraging data-driven insights to solve complex problems and drive innovation.
               </p>
               <p className={`text-lg mb-6 leading-relaxed font-medium ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
                 My journey in the field of data science has been marked by continuous learning and hands-on experience with cutting-edge technologies. I'm particularly interested in machine learning, statistical analysis, and the practical applications of AI in solving real-world challenges.
@@ -347,7 +347,7 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                 <img
-                  src="/IMG_20250315_104630.jpg"
+                  src="/IMG_20250815_121709.jpg"
                   alt="Madhan M"
                   className="relative w-80 h-80 rounded-full object-cover shadow-2xl animate-scale-in"
                 />
@@ -385,7 +385,7 @@ const Index = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Badge variant="secondary" className="bg-green-100 text-green-800 text-lg px-3 py-1 font-semibold">
-                      GPA: 8.7/10
+                      GPA: 8.5/10
                     </Badge>
                   </div>
                 </div>
