@@ -286,7 +286,7 @@ const Index = () => {
               Data Analyst & AI Enthusiast
             </p>
             <p className={`text-lg mb-12 max-w-2xl mx-auto font-medium ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
-              Pre-final year B.Tech AIDS student passionate about transforming data into actionable insights and exploring the frontiers of artificial intelligence.
+              Final year B.Tech AIDS student passionate about transforming data into actionable insights and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -298,7 +298,7 @@ const Index = () => {
               <Button 
                 variant="outline"
                 className={`px-8 py-3 text-lg font-medium ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-400 text-gray-800 hover:bg-gray-100'}`}
-                onClick={() => window.open('https://drive.google.com/file/d/132psJlwmlmYEqO3wb3fA72g6y6R4nBa_/view?usp=drive_link', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/1TcmX3NK82pSWeGaRt5A-ZFwwp-RUPcQ_/view?usp=sharing', '_blank')}
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
@@ -380,7 +380,7 @@ const Index = () => {
                       Arunai Engineering College
                     </p>
                     <p className={`${isDark ? 'text-gray-400' : 'text-gray-700'} font-medium`}>
-                      Pre-final Year Student
+                      Final Year Student
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
