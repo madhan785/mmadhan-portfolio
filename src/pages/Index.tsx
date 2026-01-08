@@ -96,6 +96,11 @@ const Index = () => {
       year: '2025',
       issuer: 'Github' 
     },
+    {
+      name: 'Microsoft & LinkedIn GEN AI',
+      year: '2026',
+      issuer: 'Microsoft & LinkedIn'
+    },
     { name: 'Artificial Intelligence Intern',
       year: '2025',
       issuer: 'Codec Technologies'
