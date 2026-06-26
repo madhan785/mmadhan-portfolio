@@ -70,7 +70,7 @@ const Index = () => {
   const skillCategories = {
     'Machine Learning & AI': {
       'Natural Language Processing': ['TensorFlow', 'Scikit-learn', 'Deep Learning'],
-      'AI Platforms': ['Azure AI', 'Machine Learning']
+      'AI Platforms': ['Azure AI', 'Machine Learning','Selenium','Gen AI']
     },
     'Data Analysis': {
       'Visualization Tools': ['Power BI', 'Tableau'],
@@ -100,6 +100,10 @@ const Index = () => {
       name: 'Microsoft & LinkedIn GEN AI',
       year: '2026',
       issuer: 'Microsoft & LinkedIn'
+    },
+    { name: 'AI Analyst',
+      year: '2026',
+      issuer: 'IBM'
     },
     { name: 'Artificial Intelligence Intern',
       year: '2025',
@@ -291,7 +295,7 @@ const Index = () => {
               Data Analyst & AI Enthusiast
             </p>
             <p className={`text-lg mb-12 max-w-2xl mx-auto font-medium ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
-              Final year B.Tech AIDS student passionate about transforming data into actionable insights and exploring the frontiers of artificial intelligence.
+              B.Tech AIDS student passionate about transforming data into actionable insights and exploring the frontiers of artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -303,7 +307,7 @@ const Index = () => {
               <Button 
                 variant="outline"
                 className={`px-8 py-3 text-lg font-medium ${isDark ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-400 text-gray-800 hover:bg-gray-100'}`}
-                onClick={() => window.open('https://drive.google.com/file/d/1TcmX3NK82pSWeGaRt5A-ZFwwp-RUPcQ_/view?usp=sharing', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/1Mov1z2NUxaSVn6iTWSUNFMMGjGurSVMW/view?usp=drivesdk', '_blank')}
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
